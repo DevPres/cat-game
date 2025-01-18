@@ -7,6 +7,7 @@ import { GridComponent } from './components/grid/grid.component';
   imports: [GridComponent],
   template: `
     <h1>Funziona</h1>
+    <h3>donde esta el gato</h3>
     <div class="container">
       <app-grid />
     </div>
