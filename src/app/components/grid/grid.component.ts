@@ -1,6 +1,8 @@
-import { Component, computed, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input, Input } from '@angular/core';
 import { CellComponent } from './cell/cell.component';
 import { CommonModule } from '@angular/common';
+import { Grid } from '../../classes/grid-manager';
+import { getRandomUUID } from '../../utilities/functions';
 
 @Component({
   selector: 'app-grid',
@@ -9,10 +11,10 @@ import { CommonModule } from '@angular/common';
     <div class="grid">
 
 
-    @for (row of rowArr; track row) {
+    @for (row of grid(); track row) {
       <div class="row">
-        @for(column of columnArr; track column) {
-          <app-cell/>
+        @for(column of row; track column) {
+          <app-cell [opt]="row"/>
         }
       </div>
     }
@@ -20,14 +22,13 @@ import { CommonModule } from '@angular/common';
   `,
   styles: `
 
-  `
+  `,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GridComponent {
 
-  X=8;
-  Y=8;
+  grid = input<Grid>()
 
-  rowArr = Array(this.X).fill('')
-  columnArr = Array(this.Y).fill('')
+
 
 }

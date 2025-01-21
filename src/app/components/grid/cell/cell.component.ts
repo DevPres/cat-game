@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { getRandomUUID } from '../../../utilities/functions';
 
 @Component({
   selector: 'app-cell',
@@ -11,5 +12,7 @@ import { Component } from '@angular/core';
   styles: ``
 })
 export class CellComponent {
+  id = getRandomUUID();
+
 
 }
