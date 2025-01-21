@@ -8,7 +8,6 @@ import { CommonModule } from '@angular/common';
   template: `
     <div class="grid">
 
-   <!--  <ng-container *ngFor="let row of rowArr"></ng-container> -->
 
     @for (row of rowArr; track row) {
       <div class="row">
