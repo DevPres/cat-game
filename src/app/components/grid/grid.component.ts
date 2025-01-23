@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, input, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input, Input, SimpleChange, SimpleChanges } from '@angular/core';
 import { CellComponent } from './cell/cell.component';
 import { CommonModule } from '@angular/common';
 import { Grid } from '../../classes/grid-manager';
@@ -11,10 +11,10 @@ import { getRandomUUID } from '../../utilities/functions';
     <div class="grid">
 
 
-    @for (row of grid(); track row) {
+    @for (row of grid(); let rowIdx = $index; track row) {
       <div class="row">
-        @for(column of row; track column) {
-          <app-cell [opt]="row"/>
+        @for(column of row; let columnIdx = $index; track column) {
+          <app-cell [cell]="column"/>
         }
       </div>
     }
@@ -28,6 +28,7 @@ import { getRandomUUID } from '../../utilities/functions';
 export class GridComponent {
 
   grid = input<Grid>()
+
 
 
 

@@ -29,6 +29,11 @@
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "**/*",
+                "input": "src/assets",
+                "output": "assets"
               }
             ],
             "styles": [
@@ -70,7 +75,8 @@
               "buildTarget": "cat-game:build:development"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n"
